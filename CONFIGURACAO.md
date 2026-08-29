@@ -20,7 +20,5 @@ CFG-006	        Acesso ao Sistema	Configuração relacionada ao login e controle
 
 Objetivo
 
-Esta documentação tem como objetivo facilitar a identificação e o entendimento das principais configurações do Portal Acadêmico.
-
-Os itens de configuração listados representam os principais componentes documentados do Portal Acadêmico.
+Esta documentação tem como objetivo facilitar a identificação e o entendimento das principais configurações do Portal Acadêmico, auxiliando a equipe na organização e manutenção do projeto.
 
