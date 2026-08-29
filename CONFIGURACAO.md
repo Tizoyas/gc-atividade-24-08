@@ -16,3 +16,9 @@ CFG-005	        Frequência	        Configuração responsável pelo controle da
 
 CFG-006	        Acesso ao Sistema	Configuração relacionada ao login e controle de acesso dos usuários.
 
+
+
+Objetivo
+
+Esta documentação tem como objetivo facilitar a identificação e o entendimento das principais configurações do Portal Acadêmico.
+
