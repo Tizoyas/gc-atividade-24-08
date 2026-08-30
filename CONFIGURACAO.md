@@ -28,6 +28,11 @@
 
 | CFG-011       Diagrama de Componentes         Responsável por descrever os módulos do portal e as integrações entre eles (arquivo: DiagramaDeComponentes.drawio). 
 
+| CFG-012       Modelo Relacional / DDL do Banco    Responsável pela definição das tabelas, chaves e integridade do banco (arquivo: database/BANCO_DE_DADOS.md).
+
+| CFG-013       Scripts de Migração e Seed          Responsável pelos dados iniciais e evolução do schema do banco.
+
+
 
 
 Objetivo
