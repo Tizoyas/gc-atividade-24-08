@@ -28,6 +28,8 @@
 
 | CFG-011       Diagrama de Componentes         Responsável por descrever os módulos do portal e as integrações entre eles (arquivo: DiagramaDeComponentes.drawio). 
 
+| CFG-012       Diagrama de Sequência           Responsável por detalhar a troca de mensagens entre os objetos nos fluxos principais do portal (arquivo: DiagramaDeSequencia.uml). 
+
 
 
 Objetivo
