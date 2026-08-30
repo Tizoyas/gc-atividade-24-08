@@ -30,6 +30,11 @@
 
 | CFG-012       Diagrama de Sequência           Responsável por detalhar a troca de mensagens entre os objetos nos fluxos principais do portal (arquivo: DiagramaDeSequencia.uml). 
 
+| CFG-013       Modelo Relacional / DDL do Banco    Responsável pela definição das tabelas, chaves e integridade do banco (arquivo: database/BANCO_DE_DADOS.md).
+
+| CFG-014       Scripts de Migração e Seed          Responsável pelos dados iniciais e evolução do schema do banco.
+
+
 
 
 Objetivo
