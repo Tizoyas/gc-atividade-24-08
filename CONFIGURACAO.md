@@ -17,6 +17,7 @@
 | CFG-012 Modelo Relacional / DDL do Banco Responsável pela definição das tabelas, chaves e integridade do banco (arquivo: database/BANCO_DE_DADOS.md).
 | CFG-013 Scripts de Migração e Seed Responsável pelos dados iniciais e evolução do schema do banco.
 | FRONT-CONF-001 | Configuração do Bundler (vite.config.js) | Configuração | Arquivo de configuração de build e rotas do Vite. | Henrique e Thiago |
+| FRONT-CONF-002 | Gerenciamento de Dependências (package.json) | Configuração | Manifesto de dependências e scripts de desenvolvimento do frontend. | Henrique e Thiago |
 
 ## Objetivo
 
