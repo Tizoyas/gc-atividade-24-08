@@ -29,6 +29,11 @@
 
 | CFG-013 Scripts de Migração e Seed Responsável pelos dados iniciais e evolução do esquema do banco.
 
+| CFG-014 | Documento de Requisitos Funcionais e Não-Funcionais | Responsável por definir os requisitos funcionais, não-funcionais e regras de negócio do Portal Acadêmico (arquivo: Requisitos&Manuais/Requisitos_e_Manuais_SISTAC.docx). |
+| CFG-015 | Manual do Aluno | Responsável por orientar o aluno na utilização do sistema (login, matrícula, consulta de notas e frequência). |
+| CFG-016 | Manual do Professor | Responsável por orientar o professor no lançamento de notas e faltas. |
+| `CFG-017` | Manual do Administrador | Responsável por orientar a secretaria acadêmica no cadastro de cursos, disciplinas, turmas, professores e alunos. |
+| `CFG-018` | Rastreabilidade de Requisitos | Responsável por relacionar os requisitos funcionais às tabelas do banco de dados e aos demais itens de configuração. |
 Objetivo
 
 Esta documentação tem como objetivo facilitar a identificação e o entendimento das principais configurações do Portal Acadêmico, auxiliando a equipe na organização e manutenção do projeto.
