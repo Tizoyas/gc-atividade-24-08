@@ -1,0 +1,81 @@
+erDiagram
+    USUARIO {
+        int id PK
+        string nome
+        string email UK
+        string senha
+        boolean ativo
+        string tipo
+    }
+
+    ALUNO {
+        int id PK, FK
+        string matricula UK
+        date data_nascimento
+        int curso_id FK
+    }
+
+    PROFESSOR {
+        int id PK, FK
+        string registro UK
+    }
+
+    ADMINISTRADOR {
+        int id PK, FK
+    }
+
+    CURSO {
+        int id PK
+        string nome
+        string descricao
+    }
+
+    DISCIPLINA {
+        int id PK
+        string nome
+        int carga_horaria
+        int curso_id FK
+    }
+
+    TURMA {
+        int id PK
+        string codigo UK
+        string periodo
+        int ano
+        int disciplina_id FK
+        int professor_id FK
+    }
+
+    MATRICULA {
+        int id PK
+        date data
+        string status
+        int aluno_id FK
+        int turma_id FK
+    }
+
+    NOTA {
+        int id PK
+        decimal valor
+        string etapa
+        int matricula_id FK
+    }
+
+    FREQUENCIA {
+        int id PK
+        date data
+        boolean presente
+        int matricula_id FK
+    }
+
+    USUARIO ||--o| ALUNO : "possui"
+    USUARIO ||--o| PROFESSOR : "possui"
+    USUARIO ||--o| ADMINISTRADOR : "possui"
+    CURSO ||--o{ ALUNO : "possui"
+    CURSO ||--|{ DISCIPLINA : "oferece"
+    DISCIPLINA ||--o{ TURMA : "gera"
+    PROFESSOR ||--o{ TURMA : "ministra"
+    ALUNO ||--o{ MATRICULA : "realiza"
+    TURMA ||--o{ MATRICULA : "recebe"
+    MATRICULA ||--o{ NOTA : "possui"
+    MATRICULA ||--o{ FREQUENCIA : "possui"

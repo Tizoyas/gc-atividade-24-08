@@ -1,0 +1,87 @@
+@startuml
+title SISTAC - Diagrama de Classes
+
+skinparam classAttributeIconSize 0
+
+abstract class Usuario {
+  - id: int
+  - nome: String
+  - email: String
+  - senha: String
+  - ativo: boolean
+  + realizarLogin()
+}
+
+class Aluno {
+  - matricula: String
+  - dataNascimento: Date
+  + consultarNotas()
+  + consultarFrequencia()
+  + realizarMatricula()
+}
+
+class Professor {
+  - registro: String
+  + lancarNota()
+  + registrarFrequencia()
+}
+
+class Administrador {
+  + cadastrarAluno()
+  + cadastrarProfessor()
+  + cadastrarCurso()
+  + cadastrarDisciplina()
+  + cadastrarTurma()
+}
+
+class Curso {
+  - id: int
+  - nome: String
+  - descricao: String
+}
+
+class Disciplina {
+  - id: int
+  - nome: String
+  - cargaHoraria: int
+}
+
+class Turma {
+  - id: int
+  - codigo: String
+  - periodo: String
+  - ano: int
+}
+
+class Matricula {
+  - id: int
+  - data: Date
+  - status: String
+}
+
+class Nota {
+  - id: int
+  - valor: decimal
+  - etapa: String
+}
+
+class Frequencia {
+  - id: int
+  - data: Date
+  - presente: boolean
+}
+
+Usuario <|-- Aluno
+Usuario <|-- Professor
+Usuario <|-- Administrador
+
+Curso "1" -- "0..*" Aluno : possui
+Curso "1" -- "1..*" Disciplina : oferece
+Disciplina "1" -- "0..*" Turma : possui
+Professor "1" -- "0..*" Turma : ministra
+Aluno "1" -- "0..*" Matricula : realiza
+Turma "1" -- "0..*" Matricula : recebe
+Matricula "1" -- "0..*" Nota : possui
+Matricula "1" -- "0..*" Frequencia : possui
+
+@enduml

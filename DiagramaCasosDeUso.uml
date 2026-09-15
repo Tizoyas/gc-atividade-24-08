@@ -1,0 +1,43 @@
+@startuml
+title SISTAC - Diagrama de Casos de Uso
+
+left to right direction
+
+actor "Aluno" as Aluno
+actor "Professor" as Professor
+actor "Administrador" as Admin
+
+rectangle "SISTAC - Sistema Acadêmico" {
+  usecase "Realizar login" as UC01
+  usecase "Consultar notas" as UC02
+  usecase "Consultar frequência" as UC03
+  usecase "Realizar matrícula" as UC04
+
+  usecase "Lançar notas" as UC05
+  usecase "Registrar frequência" as UC06
+
+  usecase "Cadastrar aluno" as UC07
+  usecase "Cadastrar professor" as UC08
+  usecase "Cadastrar curso" as UC09
+  usecase "Cadastrar disciplina" as UC10
+  usecase "Cadastrar turma" as UC11
+  usecase "Gerenciar matrículas" as UC12
+}
+
+Aluno --> UC01
+Aluno --> UC02
+Aluno --> UC03
+Aluno --> UC04
+
+Professor --> UC01
+Professor --> UC05
+Professor --> UC06
+
+Admin --> UC01
+Admin --> UC07
+Admin --> UC08
+Admin --> UC09
+Admin --> UC10
+Admin --> UC11
+Admin --> UC12
+@enduml
