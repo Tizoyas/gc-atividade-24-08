@@ -1,0 +1,49 @@
+@startuml
+title SISTAC - Diagrama de Casos de Uso
+left to right direction
+actor Aluno
+actor Professor
+actor "Administrador" as Admin
+rectangle SISTAC {
+  usecase "Realizar login\n(RF01)" as UC01
+  usecase "Realizar matrícula\n(RF07)" as UC02
+  usecase "Consultar notas\n(RF09)" as UC03
+  usecase "Consultar frequência\n(RF09)" as UC04
+  usecase "Lançar notas\n(RF08)" as UC05
+  usecase "Registrar faltas\n(RF08)" as UC06
+  usecase "Consultar minhas turmas\n(Manual do Professor)" as UC07
+  usecase "Cadastrar, editar e consultar cursos\n(RF02)" as UC08
+  usecase "Cadastrar disciplinas\n(RF03)" as UC09
+  usecase "Cadastrar professores\n(RF04)" as UC10
+  usecase "Cadastrar alunos\n(RF05)" as UC11
+  usecase "Abrir turmas\n(RF06)" as UC12
+  usecase "Atualizar status da matrícula\n(RF10)" as UC13
+  usecase "Atualizar status do aluno\n(RF10)" as UC14
+  usecase "Consultar turmas disponíveis\n(Manual do Aluno)" as UC15
+}
+Aluno --> UC01
+Aluno --> UC02
+Aluno --> UC03
+Aluno --> UC04
+Aluno --> UC15
+Professor --> UC01
+Professor --> UC05
+Professor --> UC06
+Professor --> UC07
+Professor --> UC13
+Professor --> UC14
+Admin --> UC01
+Admin --> UC02
+Admin --> UC08
+Admin --> UC09
+Admin --> UC10
+Admin --> UC11
+Admin --> UC12
+Admin --> UC13
+Admin --> UC14
+note bottom of UC13
+  RF10 cita Administrador e Professor.
+  O escopo de cada perfil deve ser detalhado
+  antes da implementação; não implica acesso irrestrito.
+end note
+@enduml

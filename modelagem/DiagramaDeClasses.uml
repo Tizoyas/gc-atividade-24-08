@@ -1,0 +1,92 @@
+@startuml
+title SISTAC - Classes do domínio acadêmico
+skinparam classAttributeIconSize 0
+class Aluno {
+  id_aluno: int
+  ra: string
+  nome: string
+  email: string
+  cpf: string
+  data_nascimento: date
+  id_curso: int
+  status: string
+  created_at: timestamp
+}
+class Professor {
+  id_professor: int
+  matricula_funcional: string
+  nome: string
+  email: string
+  titulacao: string
+  created_at: timestamp
+}
+class Curso {
+  id_curso: int
+  codigo_curso: string
+  nome: string
+  carga_horaria_total: int
+  turno: string
+  created_at: timestamp
+}
+class Disciplina {
+  id_disciplina: int
+  codigo_disciplina: string
+  nome: string
+  carga_horaria: int
+  id_curso: int
+}
+class Turma {
+  id_turma: int
+  codigo_turma: string
+  id_disciplina: int
+  id_professor: int
+  ano_semestre: int
+  capacidade_maxima: int
+  sala: string
+}
+class Matricula {
+  id_matricula: int
+  id_aluno: int
+  id_turma: int
+  data_matricula: date
+  status_matricula: string
+}
+class Avaliacao {
+  id_avaliacao: int
+  id_matricula: int
+  tipo_avaliacao: string
+  nota: decimal
+  faltas: int
+  data_lancamento: timestamp
+}
+Aluno "1" -- "0..*" Matricula : realiza
+Disciplina "1" -- "0..*" Turma : oferta
+Professor "1" -- "0..*" Turma : leciona
+Turma "1" -- "0..*" Matricula : contem
+Matricula "1" -- "0..*" Avaliacao : possui
+Curso "1" -- "0..*" Disciplina : matriz
+Curso "1" -- "0..*" Aluno : vincula
+note bottom of Matricula
+  RN01: aluno + turma únicos.
+  RN04: CURSANDO, APROVADO, REPROVADO ou CANCELADO.
+  RN07: validar capacidade da turma na transação.
+end note
+note bottom of Avaliacao
+  RF08: N1, N2 ou EXAME; nota entre 0 e 10 (RN02).
+  Faltas são registradas nesta entidade.
+end note
+note bottom of Aluno
+  RN03: ATIVO, TRANCADO, FORMADO ou DESISTENTE.
+  RN06: RA, CPF e e-mail únicos.
+end note
+note top of Curso
+  RN05: MATUTINO, VESPERTINO, NOTURNO ou INTEGRAL.
+end note
+legend bottom
+  Modelo de domínio alinhado às sete tabelas do DDL oficial.
+  IDs e atributos conservam os nomes do banco para rastreabilidade.
+  As associações representam as chaves estrangeiras obrigatórias.
+  Administrador é perfil de acesso, não tabela existente.
+  Credenciais e auditoria completa requerem definição própria.
+endlegend
+@enduml

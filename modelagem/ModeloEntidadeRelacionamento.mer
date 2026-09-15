@@ -1,0 +1,73 @@
+erDiagram
+    ALUNO ||--o{ MATRICULA : realiza
+    DISCIPLINA ||--o{ TURMA : oferta
+    PROFESSOR ||--o{ TURMA : leciona
+    TURMA ||--o{ MATRICULA : contem
+    MATRICULA ||--o{ AVALIACAO : possui
+    CURSO ||--o{ DISCIPLINA : matriz
+    CURSO ||--o{ ALUNO : vincula
+
+    ALUNO {
+        int id_aluno PK
+        string ra UK
+        string nome
+        string email UK
+        string cpf UK
+        date data_nascimento
+        int id_curso FK
+        string status
+        timestamp created_at
+    }
+
+    PROFESSOR {
+        int id_professor PK
+        string matricula_funcional UK
+        string nome
+        string email UK
+        string titulacao
+        timestamp created_at
+    }
+
+    CURSO {
+        int id_curso PK
+        string codigo_curso UK
+        string nome
+        int carga_horaria_total
+        string turno
+        timestamp created_at
+    }
+
+    DISCIPLINA {
+        int id_disciplina PK
+        string codigo_disciplina UK
+        string nome
+        int carga_horaria
+        int id_curso FK
+    }
+
+    TURMA {
+        int id_turma PK
+        string codigo_turma UK
+        int id_disciplina FK
+        int id_professor FK
+        int ano_semestre
+        int capacidade_maxima
+        string sala
+    }
+
+    MATRICULA {
+        int id_matricula PK
+        int id_aluno FK
+        int id_turma FK
+        date data_matricula
+        string status_matricula
+    }
+
+    AVALIACAO {
+        int id_avaliacao PK
+        int id_matricula FK
+        string tipo_avaliacao
+        decimal nota
+        int faltas
+        timestamp data_lancamento
+    }

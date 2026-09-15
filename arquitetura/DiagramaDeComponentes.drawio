@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Componentes do SISTAC">
+    <mxGraphModel grid="1" page="1" pageWidth="1169" pageHeight="827">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ui" value="Interface web&#10;Aluno, Professor, Administrador" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="30" y="320" width="180" height="90" />
+        </mxCell>
+        <mxCell id="auth" value="Autenticação e autorização&#10;RF01 e RNF01" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="270" y="90" width="230" height="80" />
+        </mxCell>
+        <mxCell id="academic" value="Gestão acadêmica&#10;Cadastros, turmas, matrículas e status&#10;RF02–RF07 e RF10" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="270" y="260" width="230" height="100" />
+        </mxCell>
+        <mxCell id="grades" value="Avaliações&#10;Notas e faltas&#10;RF08 e RF09" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="270" y="430" width="230" height="90" />
+        </mxCell>
+        <mxCell id="domain" value="Domínio acadêmico&#10;Curso, Disciplina, Professor, Aluno,&#10;Turma, Matricula, Avaliacao" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="230" width="260" height="100" />
+        </mxCell>
+        <mxCell id="repo" value="Repositórios acadêmicos" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="400" width="260" height="70" />
+        </mxCell>
+        <mxCell id="identity" value="Adaptador de identidade&#10;Persistência ou provedor a definir" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="70" width="260" height="90" />
+        </mxCell>
+        <mxCell id="audit" value="Auditoria de alterações&#10;RNF06 — mecanismo a definir" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="560" width="260" height="90" />
+        </mxCell>
+        <mxCell id="db" value="Banco relacional&#10;Sete tabelas oficiais" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="910" y="395" width="210" height="95" />
+        </mxCell>
+        <mxCell id="note" value="Arquitetura proposta.&#10;Identidade e auditoria não estão&#10;implementadas no DDL de referência." style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#334155;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="880" y="70" width="250" height="100" />
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="ui" target="auth">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="ui" target="academic">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="ui" target="grades">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="academic" target="auth">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="grades" target="auth">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="academic" target="domain">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="grades" target="domain">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="academic" target="repo">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="grades" target="repo">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="auth" target="identity">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="academic" target="audit">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="grades" target="audit">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;" edge="1" parent="1" source="repo" target="db">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
