@@ -8,20 +8,23 @@ actor "Professor" as Professor
 actor "Administrador" as Admin
 
 rectangle "SISTAC - Sistema Acadêmico" {
+
   usecase "Realizar login" as UC01
-  usecase "Consultar notas" as UC02
-  usecase "Consultar frequência" as UC03
-  usecase "Realizar matrícula" as UC04
+
+  usecase "Realizar matrícula" as UC02
+  usecase "Consultar notas" as UC03
+  usecase "Consultar frequência" as UC04
 
   usecase "Lançar notas" as UC05
-  usecase "Registrar frequência" as UC06
+  usecase "Registrar faltas" as UC06
+  usecase "Consultar turmas" as UC07
 
-  usecase "Cadastrar aluno" as UC07
-  usecase "Cadastrar professor" as UC08
-  usecase "Cadastrar curso" as UC09
-  usecase "Cadastrar disciplina" as UC10
-  usecase "Cadastrar turma" as UC11
-  usecase "Gerenciar matrículas" as UC12
+  usecase "Gerenciar cursos" as UC08
+  usecase "Gerenciar disciplinas" as UC09
+  usecase "Gerenciar professores" as UC10
+  usecase "Gerenciar alunos" as UC11
+  usecase "Gerenciar turmas" as UC12
+  usecase "Gerenciar matrículas" as UC13
 }
 
 Aluno --> UC01
@@ -32,12 +35,14 @@ Aluno --> UC04
 Professor --> UC01
 Professor --> UC05
 Professor --> UC06
+Professor --> UC07
 
 Admin --> UC01
-Admin --> UC07
 Admin --> UC08
 Admin --> UC09
 Admin --> UC10
 Admin --> UC11
 Admin --> UC12
+Admin --> UC13
+
 @enduml
