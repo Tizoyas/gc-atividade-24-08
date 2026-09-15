@@ -1,81 +1,73 @@
 erDiagram
-    USUARIO {
-        int id PK
-        string nome
-        string email UK
-        string senha
-        boolean ativo
-        string tipo
-    }
+    ALUNO ||--o{ MATRICULA : realiza
+    DISCIPLINA ||--o{ TURMA : oferta
+    PROFESSOR ||--o{ TURMA : leciona
+    TURMA ||--o{ MATRICULA : contem
+    MATRICULA ||--o{ AVALIACAO : possui
+    CURSO ||--o{ DISCIPLINA : matriz
+    CURSO ||--o{ ALUNO : vincula
 
     ALUNO {
-        int id PK, FK
-        string matricula UK
+        int id_aluno PK
+        string ra UK
+        string nome
+        string email UK
+        string cpf UK
         date data_nascimento
-        int curso_id FK
+        int id_curso FK
+        string status
+        timestamp created_at
     }
 
     PROFESSOR {
-        int id PK, FK
-        string registro UK
-    }
-
-    ADMINISTRADOR {
-        int id PK, FK
+        int id_professor PK
+        string matricula_funcional UK
+        string nome
+        string email UK
+        string titulacao
+        timestamp created_at
     }
 
     CURSO {
-        int id PK
+        int id_curso PK
+        string codigo_curso UK
         string nome
-        string descricao
+        int carga_horaria_total
+        string turno
+        timestamp created_at
     }
 
     DISCIPLINA {
-        int id PK
+        int id_disciplina PK
+        string codigo_disciplina UK
         string nome
         int carga_horaria
-        int curso_id FK
+        int id_curso FK
     }
 
     TURMA {
-        int id PK
-        string codigo UK
-        string periodo
-        int ano
-        int disciplina_id FK
-        int professor_id FK
+        int id_turma PK
+        string codigo_turma UK
+        int id_disciplina FK
+        int id_professor FK
+        int ano_semestre
+        int capacidade_maxima
+        string sala
     }
 
     MATRICULA {
-        int id PK
-        date data
-        string status
-        int aluno_id FK
-        int turma_id FK
+        int id_matricula PK
+        int id_aluno FK
+        int id_turma FK
+        date data_matricula
+        string status_matricula
     }
 
-    NOTA {
-        int id PK
-        decimal valor
-        string etapa
-        int matricula_id FK
+    AVALIACAO {
+        int id_avaliacao PK
+        int id_matricula FK
+        string tipo_avaliacao
+        decimal nota
+        int faltas
+        timestamp data_lancamento
     }
-
-    FREQUENCIA {
-        int id PK
-        date data
-        boolean presente
-        int matricula_id FK
-    }
-
-    USUARIO ||--o| ALUNO : "possui"
-    USUARIO ||--o| PROFESSOR : "possui"
-    USUARIO ||--o| ADMINISTRADOR : "possui"
-    CURSO ||--o{ ALUNO : "possui"
-    CURSO ||--|{ DISCIPLINA : "oferece"
-    DISCIPLINA ||--o{ TURMA : "gera"
-    PROFESSOR ||--o{ TURMA : "ministra"
-    ALUNO ||--o{ MATRICULA : "realiza"
-    TURMA ||--o{ MATRICULA : "recebe"
-    MATRICULA ||--o{ NOTA : "possui"
-    MATRICULA ||--o{ FREQUENCIA : "possui"

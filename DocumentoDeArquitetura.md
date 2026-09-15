@@ -1,182 +1,69 @@
-# SISTAC — Documento de Arquitetura
+# Arquitetura do SISTAC
 
-## 1. Objetivo
+Versão 1.1
 
-Este documento apresenta uma proposta de arquitetura para o SISTAC, Sistema Acadêmico utilizado como cenário do projeto de Gerência de Configuração.
+## 1 Objetivo e referências
 
-A proposta organiza o sistema em camadas, separando a interface, as regras da aplicação, o domínio e o acesso aos dados.
+A arquitetura proposta organiza o SISTAC em camadas e mantém o domínio alinhado ao banco oficial. Os sete conceitos persistidos são Curso, Disciplina, Professor, Aluno, Turma, Matricula e Avaliacao. Notas e faltas pertencem a Avaliacao.
 
-> **Observação:** esta é uma modelagem proposta com base nos itens de configuração disponíveis no repositório. O documento detalhado de requisitos não estava disponível para leitura nesta etapa; por isso, regras específicas que não aparecem na configuração foram evitadas ou tratadas como decisões de modelagem.
+Referências: Requisitos&Manuais/Requisitos_e_Manuais_SISTAC.docx, versão 1.0.0; database/BANCO_DE_DADOS.md, ICS-BD-SCHEMA-001; CONFIGURACAO.md. Esta revisão 1.1 substitui a proposta inicial pelos requisitos RF01–RF10, RNF01–RNF07 e regras RN01–RN07.
 
-## 2. Escopo considerado
+## 2 Escopo e perfis
 
-O repositório identifica como funcionalidades principais:
+Aluno: realizar login (RF01), matricular-se com disponibilidade de vagas (RF07) e consultar suas notas e frequência (RF09). O manual prevê consulta de turmas disponíveis e acompanhamento da matrícula.
 
-- Cadastro e gerenciamento de alunos;
-- Cadastro e gerenciamento de disciplinas;
-- Registro e consulta de notas;
-- Controle de frequência;
-- Login e controle de acesso;
-- Cadastro de cursos, turmas e professores;
-- Matrículas;
-- Consulta de notas e frequência pelo aluno;
-- Lançamento de notas e faltas pelo professor.
+Professor: realizar login (RF01), consultar suas turmas e registrar notas N1, N2 ou Exame e faltas de alunos matriculados nessas turmas (RF08).
 
-## 3. Estilo arquitetural
+Administrador: realizar login (RF01), cadastrar, editar e consultar cursos (RF02), cadastrar disciplinas (RF03), professores (RF04) e alunos (RF05), abrir turmas (RF06) e matricular alunos (RF07).
 
-Foi adotada uma **arquitetura em camadas**, por ser simples de compreender, manter e implementar em um sistema acadêmico.
+RF10 prevê atualização de status da matrícula e do aluno e cita Administrador e Professor. O documento não detalha quais transições cada perfil pode executar. A implementação deve definir essa política e restringir o acesso no servidor; a associação no caso de uso não concede acesso irrestrito.
 
-### Camadas
+## 3 Camadas e componentes
 
-**1. Apresentação**
-- Telas do sistema;
-- Formulários;
-- Exibição de notas, frequência e cadastros;
-- Comunicação com a camada de aplicação.
+Apresentação: interface web para Aluno, Professor e Administrador, com formulários, consultas e mensagens de validação. A interface chama os serviços de aplicação.
 
-**2. Aplicação**
-- Serviços de autenticação;
-- Serviços de alunos;
-- Serviços acadêmicos;
-- Serviços de notas;
-- Serviços de frequência;
-- Coordenação dos casos de uso.
+Aplicação: os componentes Autenticação e autorização, Gestão acadêmica e Avaliações coordenam os casos de uso, a validação das regras e as transações. Gestão acadêmica cobre cursos, disciplinas, professores, alunos, turmas, matrículas e status. Avaliações cobre notas e faltas e suas consultas.
 
-**3. Domínio**
-- Entidades e regras centrais do sistema;
-- Aluno;
-- Professor;
-- Administrador;
-- Curso;
-- Disciplina;
-- Turma;
-- Matrícula;
-- Nota;
-- Frequência.
+Domínio: as sete classes acadêmicas representam os atributos do DDL e os relacionamentos obrigatórios. Um curso pode ter zero ou muitas disciplinas e alunos; cada disciplina e aluno pertence a um curso. Cada turma referencia uma disciplina e um professor; cada matrícula referencia um aluno e uma turma; cada avaliação pertence a uma matrícula.
 
-**4. Infraestrutura**
-- Repositórios;
-- Conexão com banco;
-- Persistência;
-- Implementações técnicas de acesso aos dados.
+Infraestrutura: repositórios implementam leitura e gravação no banco relacional. Adaptadores de identidade e auditoria serão definidos para atender RF01, RNF01 e RNF06. O domínio não precisa executar SQL diretamente.
 
-**5. Banco de Dados**
-- Armazenamento das informações acadêmicas;
-- Tabelas;
-- Chaves primárias e estrangeiras;
-- Integridade dos dados.
+Banco de dados: as tabelas cursos, disciplinas, professores, alunos, turmas, matriculas e avaliacoes constituem a referência existente. O banco é recurso de persistência, externo às quatro camadas de software. O diagrama de componentes descreve esta proposta, não comprova componentes já implementados.
 
-## 4. Fluxo básico
+## 4 Fluxos e regras de negócio
 
-O fluxo geral de uma operação é:
+Matrícula: a interface chama Gestão acadêmica; o serviço autentica o usuário, verifica sua autorização, valida aluno e turma e executa a matrícula em uma transação. A chave única aluno/turma garante RN01. A validação de capacidade (RN07) deve considerar matrículas concorrentes, com bloqueio da turma ou mecanismo equivalente. A política de quais status ocupam vaga precisa ser definida.
 
-```text
-Usuário
-   ↓
-Interface
-   ↓
-Serviço da Aplicação
-   ↓
-Entidade/Regra de Domínio
-   ↓
-Repositório
-   ↓
-Banco de Dados
-```
+Avaliações: o professor seleciona uma de suas turmas e um aluno matriculado. O serviço de Avaliações valida a autorização, o tipo N1, N2 ou EXAME e a nota entre 0 e 10 (RN02), registra as faltas e persiste em avaliacoes. A consulta do aluno retorna apenas suas próprias avaliações. Não se pressupõem cálculo de média, limite de faltas ou aprovação automática, pois essas fórmulas não estão definidas.
 
-O retorno percorre o caminho inverso até chegar à interface.
+Cadastros e status: RN03 limita o aluno a ATIVO, TRANCADO, FORMADO ou DESISTENTE; RN04 limita a matrícula a CURSANDO, APROVADO, REPROVADO ou CANCELADO; RN05 limita o turno a MATUTINO, VESPERTINO, NOTURNO ou INTEGRAL. RN06 exige unicidade de identificadores. As validações da aplicação complementam as restrições existentes no DDL.
 
-## 5. Controle de acesso
+## 5 Segurança e qualidade
 
-O sistema considera três perfis principais:
+RNF01: validar perfil e titularidade em cada operação no servidor. A proposta técnica é armazenar senhas como hashes com salt usando algoritmo próprio para senhas. Credenciais nunca devem ser armazenadas em texto puro. O mecanismo de identidade e a vinculação dos perfis exigem definição de implementação.
 
-### Aluno
-Pode:
-- realizar login;
-- consultar suas notas;
-- consultar sua frequência;
-- realizar/consultar matrícula.
+RNF02: combinar validações com UNIQUE, CHECK, chaves estrangeiras e transações. RNF03: medir consultas de notas, frequência e turmas para atender ao máximo de 3 segundos em condições normais; índices e paginação devem ser definidos a partir dessas medições.
 
-### Professor
-Pode:
-- realizar login;
-- lançar notas;
-- registrar frequência.
+RNF04 e RNF07: oferecer fluxos simples, acessíveis pelo navegador, seguindo os manuais dos três perfis. RNF05: planejar monitoramento, backups e recuperação para disponibilidade durante o período letivo, especialmente nas matrículas; a meta numérica de disponibilidade não foi especificada.
 
-### Administrador
-Pode:
-- realizar login;
-- cadastrar alunos;
-- cadastrar professores;
-- cadastrar cursos;
-- cadastrar disciplinas;
-- cadastrar turmas;
-- gerenciar matrículas.
+RNF06: registrar data e hora de toda alteração de notas, faltas e status. Um serviço de auditoria deve capturar cada alteração; identificador do autor e valores anteriores e posteriores são recomendações arquiteturais adicionais.
 
-## 6. Persistência
+## 6 Lacunas entre requisitos e banco
 
-A camada de infraestrutura será responsável por esconder os detalhes do banco de dados das demais camadas.
+Autenticação: o DDL não define tabela de usuários, credenciais, senha ou administrador. Administrador é um perfil exigido por RF01, não uma tabela já existente. O modelo preserva as sete tabelas oficiais; o adaptador de identidade no diagrama é proposto e requer decisão sobre armazenamento ou provedor.
 
-Exemplo:
+Auditoria: created_at e data_lancamento registram criação ou lançamento, mas seus valores DEFAULT não atualizam automaticamente em cada alteração. Não há histórico de mudanças de status. Portanto, RNF06 ainda requer mecanismo adicional, sem afirmar cobertura completa pelo DDL.
 
-```text
-AlunoService
-     ↓
-AlunoRepository
-     ↓
-Banco de Dados
-```
+Validações: o DDL não impõe limite de vagas entre linhas nem restringe tipo_avaliacao a N1, N2 e EXAME. Também não impede faltas negativas por CHECK. Essas verificações devem ser tratadas pela aplicação e, se aprovado em outro trabalho, por migrações.
 
-Dessa forma, as regras da aplicação não precisam conhecer diretamente comandos SQL ou detalhes de conexão.
+Unicidade: UNIQUE de e-mail existe separadamente em alunos e professores. A expressão “em todo o sistema” da RN06 pode exigir unicidade entre perfis; isso não é garantido pelo DDL e deve ser esclarecido antes da implementação.
 
-## 7. Componentes principais
+Nulabilidade: o DDL permite nulos em alguns atributos com CHECK ou DEFAULT, incluindo status, turno e nota. Esses mecanismos não equivalem a NOT NULL. A implementação deve validar os campos exigidos nos fluxos sem apresentar restrições adicionais como já existentes. O MER inclui created_at de cursos, presente no DDL embora omitido no diagrama ER original.
 
-Os componentes propostos são:
+## 7 Decisões e rastreabilidade
 
-- Interface do Sistema;
-- Autenticação;
-- Gestão de Alunos;
-- Gestão Acadêmica;
-- Gestão de Notas;
-- Gestão de Frequência;
-- Repositórios;
-- Banco de Dados.
+Arquitetura em camadas e repositórios são decisões propostas para separar interface, coordenação dos casos de uso, domínio e persistência. Notas e faltas ficam no mesmo componente de Avaliações, em correspondência com a entidade Avaliacao, sem tabelas separadas Nota e Frequencia.
 
-## 8. Requisitos não funcionais considerados
+A matriz RASTREABILIDADE.md relaciona todos os RF oficiais aos casos de uso, classes, tabelas e itens de configuração. Os arquivos DiagramaCasosDeUso.uml, DiagramaDeClasses.uml, ModeloEntidadeRelacionamento.mer e DiagramaDeComponentes.drawio complementam este documento.
 
-Como decisões arquiteturais iniciais, a solução deve buscar:
-
-- **Segurança:** controle de acesso conforme o perfil do usuário;
-- **Manutenibilidade:** separação das responsabilidades por camadas;
-- **Integridade:** uso de chaves e relacionamentos no banco;
-- **Usabilidade:** interfaces simples e coerentes;
-- **Disponibilidade:** permitir acesso às funções acadêmicas quando o sistema estiver operacional;
-- **Rastreabilidade:** manter os itens de configuração relacionados aos requisitos e à documentação.
-
-## 9. Decisões arquiteturais
-
-| Decisão | Justificativa |
-|---|---|
-| Arquitetura em camadas | Facilita organização e manutenção |
-| Separação entre domínio e persistência | Evita acoplamento direto ao banco |
-| Serviços de aplicação | Centralizam os casos de uso |
-| Controle por perfil | Diferencia permissões de aluno, professor e administrador |
-| Repositórios | Centralizam o acesso aos dados |
-
-## 10. Relação com a Gerência de Configuração
-
-A arquitetura deve ser mantida como item de configuração do projeto.
-
-Os principais artefatos são:
-
-- Diagrama de Casos de Uso;
-- Diagrama de Classes;
-- Modelo Entidade-Relacionamento;
-- Documento de Arquitetura;
-- Diagrama de Componentes.
-
-Cada alteração relevante deve ser versionada no Git e registrada de forma que seja possível identificar a evolução dos artefatos.
-
-## 11. Status
-
-**Versão:** 1.0 — proposta inicial de modelagem e arquitetura.
+A versão Markdown e a versão Word contêm o mesmo texto. Os requisitos, manuais e banco oficiais permanecem como referências. As propostas de autenticação, auditoria e validação precisam ser implementadas e verificadas antes de afirmar atendimento operacional.
