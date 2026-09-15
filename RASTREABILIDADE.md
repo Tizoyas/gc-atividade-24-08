@@ -45,4 +45,13 @@ UC07 e UC15 detalham os manuais de Professor e Aluno; não criam novos RF. RF10 
 
 ## Itens de configuração
 
-CFG-007: casos de uso; CFG-008: classes; CFG-009: MER; CFG-010: arquitetura; CFG-011: componentes; CFG-012: DDL; CFG-014: requisitos; CFG-018: esta matriz. As lacunas do banco e decisões propostas estão em [Documento de Arquitetura](DocumentoDeArquitetura.md).
+CFG-007: casos de uso; CFG-008: classes; CFG-009: MER; CFG-010: arquitetura; CFG-011: componentes; CFG-012: DDL; CFG-014: requisitos; CFG-018: esta matriz. As lacunas do banco e decisões propostas estão em [Documento de Arquitetura](arquitetura/DocumentoDeArquitetura.md).
+
+## Localização dos artefatos
+
+- [Casos de uso](modelagem/DiagramaCasosDeUso.uml)
+- [Classes](modelagem/DiagramaDeClasses.uml)
+- [Modelo entidade-relacionamento](modelagem/ModeloEntidadeRelacionamento.mer)
+- [Arquitetura em Markdown](arquitetura/DocumentoDeArquitetura.md)
+- [Arquitetura em Word](arquitetura/DocumentoDeArquitetura.docx)
+- [Componentes](arquitetura/DiagramaDeComponentes.drawio)
