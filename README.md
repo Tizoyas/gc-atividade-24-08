@@ -63,3 +63,6 @@ npm start
 
 A aplicação não usa banco externo: os dados de demonstração vêm no próprio código.
 
+Link do quadro: https://github.com/users/HenriqueSpyder/projects/2/views/1
+milestone v1.0.0
+
