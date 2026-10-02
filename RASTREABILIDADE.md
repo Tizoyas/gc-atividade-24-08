@@ -55,3 +55,7 @@ CFG-007: casos de uso; CFG-008: classes; CFG-009: MER; CFG-010: arquitetura; CFG
 - [Arquitetura em Markdown](arquitetura/DocumentoDeArquitetura.md)
 - [Arquitetura em Word](arquitetura/DocumentoDeArquitetura.docx)
 - [Componentes](arquitetura/DiagramaDeComponentes.drawio)
+
+## Entregas e Versões
+
+- Portal (app/) → PR #20 → tag v1.0.1.
