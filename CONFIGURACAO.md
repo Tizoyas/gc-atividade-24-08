@@ -34,6 +34,9 @@
 | CFG-016 | Manual do Professor | Responsável por orientar o professor no lançamento de notas e faltas. |
 | `CFG-017` | Manual do Administrador | Responsável por orientar a secretaria acadêmica no cadastro de cursos, disciplinas, turmas, professores e alunos. |
 | `CFG-018` | Rastreabilidade de Requisitos | Responsável por relacionar os requisitos funcionais às tabelas do banco de dados e aos demais itens de configuração. |
+| `CFG-019` | Aplicação do Portal do Aluno (`app/`) | Responsável por executar o servidor Node.js/Express do Portal do Aluno, disponibilizar a interface web e as rotas da API com dados de demonstração (entrada: `app/src/server.js`; execução: `npm start` na pasta `app/`; porta padrão: `3001`). |
+
+
 Objetivo
 
 Esta documentação tem como objetivo facilitar a identificação e o entendimento das principais configurações do Portal Acadêmico, auxiliando a equipe na organização e manutenção do projeto.
