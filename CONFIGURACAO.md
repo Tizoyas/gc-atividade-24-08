@@ -34,6 +34,8 @@
 | CFG-016 | Manual do Professor | Responsável por orientar o professor no lançamento de notas e faltas. |
 | `CFG-017` | Manual do Administrador | Responsável por orientar a secretaria acadêmica no cadastro de cursos, disciplinas, turmas, professores e alunos. |
 | `CFG-018` | Rastreabilidade de Requisitos | Responsável por relacionar os requisitos funcionais às tabelas do banco de dados e aos demais itens de configuração. |
+> **Nota (login demo):** para acesso de demonstração ao portal, utilizar matrícula `20241001` e senha `123456`, conforme o fluxo de login descrito na documentação de sequência.
+
 Objetivo
 
 Esta documentação tem como objetivo facilitar a identificação e o entendimento das principais configurações do Portal Acadêmico, auxiliando a equipe na organização e manutenção do projeto.
