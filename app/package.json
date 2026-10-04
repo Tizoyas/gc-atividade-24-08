@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node src/server.js"
   },
+  "engines": {
+  "node": ">=18"
+},
   "license": "UNLICENSED",
   "dependencies": {
     "cors": "^2.8.5",
