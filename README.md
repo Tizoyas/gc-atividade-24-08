@@ -1,19 +1,19 @@
-\#gc-atividade-24-08
+# gc-atividade-24-08
 Titulo: SISTAC
 
 1. Yasmim Tizo Ferreira
 2. Henrique Antunes da Silva
-3. ⁠Thiago de oliveira Rodrigues
-4. ⁠Joao Henrique Porfirio Firmiano
+3. Thiago de Oliveira Rodrigues
+4. Joao Henrique Porfirio Firmiano
 5. Gabriel Moreira Silva
-6. ⁠Isabela Paulo do Nascimento
+6. Isabela Paulo do Nascimento
 7. Rubens Cosmo dos Santos
 8. Joao Paulo Gomes de Oliveira Sousa
-9. ⁠Fabricio Salvino Martins
+9. Fabricio Salvino Martins
 10. Thiago Nunes da Silva Frades
 11. Carlos Henrique Felix de Sousa
 12. Eliaquim Anselmo Dias
-13. Guilherme Nogueira Sousa.
+13. Guilherme Nogueira Sousa
 
 Disciplina: Gerencia de Configuracao - Este repositorio tem como objetivo aplicar na pratica os conceitos de Gerencia de Configuracao de Software (GCS), simulando o fluxo de versionamento, controle de branches, revisão técnica e gestao de Itens de Configuracao (ICS) utilizando o cenario de um Sistema Academico.
 
@@ -23,6 +23,7 @@ Disciplina: Gerencia de Configuracao - Este repositorio tem como objetivo aplica
 
 - Node.js `v24.19.0` (`node -v`)
 - npm `11.17.0` (`npm -v`)
+- Git
 
 Node.js 18 ou superior também deve funcionar.
 
@@ -35,10 +36,13 @@ git clone https://github.com/Tizoyas/gc-atividade-24-08.git
 cd gc-atividade-24-08
 ```
 
-2. Use a tag da entrega (depois que o grupo marcar `v1.0.1` com a aplicação). Até o merge desta branch, use a branch do Portal:
+2. Faça checkout da tag da entrega, confira a versão e as versões do ambiente:
 
 ```bash
-git checkout feature/gabriel-portal-executavel
+git checkout v1.0.2
+git describe --tags
+node -v
+npm -v
 ```
 
 3. Copie o arquivo de variáveis de exemplo (não commite senha real):
@@ -63,6 +67,6 @@ npm start
 
 A aplicação não usa banco externo: os dados de demonstração vêm no próprio código.
 
-Link do quadro: https://github.com/users/HenriqueSpyder/projects/2/views/1
-milestone v1.0.0
+Quadro (GitHub Projects): https://github.com/users/HenriqueSpyder/projects/2/views/1
 
+Milestone: `v1.0.0`
