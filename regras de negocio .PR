@@ -1,3 +1,9 @@
 
 Adicionando regras de negocio/requistos.
 REQUISITOS E REGRAS FEITAS 
+## Ambiente Reprodutível
+
+O sistema deve ser capaz de subir localmente através dos comandos `npm install` 
+seguido de `npm start`, conforme instruções descritas no README.md do projeto, 
+sem necessidade de configuração manual adicional além das variáveis de ambiente 
+documentadas no `.env.example`.

@@ -7,6 +7,21 @@
 
 ---
 
+## Situação atual da aplicação (v1): dados em memória
+
+> **Importante:** a versão atual do Portal do Aluno (pasta `app/`) **não usa banco de dados**.
+
+- **Não utiliza PostgreSQL.**
+- **Não utiliza MySQL.**
+- Os dados são armazenados **em memória**: são carregados na memória do servidor Node.js quando ele inicia e não são gravados em nenhum banco.
+- Os dados estão no arquivo [`app/src/data.js`](../app/src/data.js), em listas e objetos JavaScript: `aluno`, `disciplinas`, `notas`, `materiais`, `avisos` e `horario`.
+- O servidor ([`app/src/server.js`](../app/src/server.js)) importa esse arquivo e devolve os dados nas rotas `/api/...`.
+- Por isso, **não é preciso instalar nem configurar banco de dados** para rodar esta versão. O `app/.env.example` não tem variável de conexão com banco e o `app/package.json` não tem biblioteca de banco (apenas `express` e `cors`).
+
+O modelo relacional e o DDL descritos nas seções abaixo continuam valendo como documentação de referência (`ICS-BD-SCHEMA-001`), mas **não são executados pela aplicação nesta versão**.
+
+---
+
 ## 1. Visão Geral
 
 Este documento descreve o modelo relacional inicial do banco de dados do **Sistema Acadêmico Universitário**. O objetivo é armazenar e gerenciar informações cadastrais de alunos, professores, cursos, disciplinas, turmas, matrículas e avaliações acadêmicas.
