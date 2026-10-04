@@ -39,7 +39,7 @@ cd gc-atividade-24-08
 2. Faça checkout da tag da entrega, confira a versão e as versões do ambiente:
 
 ```bash
-git checkout v1.0.1
+git checkout v1.0.2
 git describe --tags
 node -v
 npm -v
