@@ -4,3 +4,4 @@ node_modules/
 Thumbs.db
 *.log
 .vscode/
+# Arquivos que nao devem ir para o Git (revisado na issue #31)

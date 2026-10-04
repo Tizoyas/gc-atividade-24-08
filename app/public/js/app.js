@@ -13,6 +13,16 @@ const PAGES = [
   { id: "avisos", label: "Avisos" }
 ];
 
+const avisos = [
+  { titulo: "Entrega da atividade de GitHub", texto: "Enviar o link do repositório e o relatório no AVA até o fim da aula prática.", data: "24/08/2026", urgente: true },
+
+  { titulo: "Semana acadêmica", texto: "Inscrições abertas para minicursos de DevOps e testes.", data: "22/08/2026", urgente: false },
+
+  { titulo: "Biblioteca 24h", texto: "A biblioteca central funciona em horário estendido nesta semana de provas.", data: "21/08/2026", urgente: false },
+
+  { titulo: "Atualização do Portal do Aluno", texto: "A tela de Avisos recebeu novas informações para os alunos.", data: "04/10/2026", urgente: false }
+];
+
 function initials(nome) {
   return nome.split(" ").filter(Boolean).slice(0, 2).map((p) => p[0]).join("").toUpperCase();
 }
