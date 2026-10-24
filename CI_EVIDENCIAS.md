@@ -6,7 +6,7 @@ Responsável: Yasmim Tizo Ferreira (líder)
 
 - Workflow: [CI](https://github.com/Tizoyas/gc-atividade-24-08/actions/workflows/ci.yml)
 - Check obrigatório: `build-and-test`
-- Execução verde na `main`: https://github.com/Tizoyas/gc-atividade-24-08/actions/runs/40124620645
+- Execução verde na `main`: https://github.com/Tizoyas/gc-atividade-24-08/actions/runs/40142293705
 
 Essa execução instalou as dependências com `npm ci`, rodou `npm run build` e `npm test`.
 
@@ -26,6 +26,6 @@ Enquanto o CI estiver vermelho, o GitHub não deve permitir o merge.
 
 A demonstração do bloqueio (teste propositalmente falho e correção no mesmo PR) fica registrada aqui após a etapa do Carlos Henrique:
 
-- PR: _(preencher o número e o link)_
-- Check vermelho (merge barrado): _(print / link da execução)_
-- Check verde após o commit de correção: _(print / link da execução)_
+- PR: https://github.com/Tizoyas/gc-atividade-24-08/pull/61
+- Check vermelho (merge barrado): https://github.com/Tizoyas/gc-atividade-24-08/actions/runs/40142121868
+- Check verde após o commit de correção: https://github.com/Tizoyas/gc-atividade-24-08/actions/runs/40142216051
