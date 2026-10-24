@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: app/.nvmrc
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Configurar npm
+        run: npm install --global npm@11.17.0
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Executar build
+        run: npm run build
+
+      - name: Executar testes
+        run: npm test
