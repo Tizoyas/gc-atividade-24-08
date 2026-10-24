@@ -1,6 +1,6 @@
 {
   "name": "sistac-portal-aluno",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Portal do Aluno / AVA do SISTAC",
   "main": "src/server.js",
   "scripts": {
