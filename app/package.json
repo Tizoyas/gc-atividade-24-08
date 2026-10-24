@@ -4,7 +4,9 @@
   "description": "Portal do Aluno / AVA do SISTAC",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "build": "node scripts/build.js",
+    "test": "node --test"
   },
   "engines": {
   "node": ">=18"
