@@ -7,3 +7,4 @@ Thumbs.db
 # Arquivos que nao devem ir para o Git (revisado na issue #31)
 
 app/dist/
+app/release/
