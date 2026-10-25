@@ -1,0 +1,317 @@
+﻿2026-10-25T02:40:08.4310020Z Current runner version: '2.338.0'
+2026-10-25T02:40:08.4346380Z ##[group]Runner Image Provisioner
+2026-10-25T02:40:08.4347987Z Hosted Compute Agent
+2026-10-25T02:40:08.4349013Z Version: 20261021.618
+2026-10-25T02:40:08.4350069Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-25T02:40:08.4351429Z Build Date: 2026-10-21T00:45:21Z
+2026-10-25T02:40:08.4352713Z Worker ID: {47cf98e3-b425-48d8-a8a3-f80a4f5fa51a}
+2026-10-25T02:40:08.4354853Z Region: northcentralus
+2026-10-25T02:40:08.4356119Z Cloud: Azure
+2026-10-25T02:40:08.4357068Z ##[endgroup]
+2026-10-25T02:40:08.4360132Z ##[group]Operating System
+2026-10-25T02:40:08.4361332Z Ubuntu
+2026-10-25T02:40:08.4362258Z 24.04.5
+2026-10-25T02:40:08.4363399Z LTS
+2026-10-25T02:40:08.4364788Z ##[endgroup]
+2026-10-25T02:40:08.4366000Z ##[group]Runner Image
+2026-10-25T02:40:08.4367137Z Image: ubuntu-24.04
+2026-10-25T02:40:08.4368279Z Version: 20261012.334.1
+2026-10-25T02:40:08.4370781Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-25T02:40:08.4373813Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-25T02:40:08.4375935Z ##[endgroup]
+2026-10-25T02:40:08.4378166Z ##[group]GITHUB_TOKEN Permissions
+2026-10-25T02:40:08.4381450Z Contents: read
+2026-10-25T02:40:08.4382492Z Metadata: read
+2026-10-25T02:40:08.4383764Z Packages: read
+2026-10-25T02:40:08.4385108Z ##[endgroup]
+2026-10-25T02:40:08.4388618Z Secret source: Actions
+2026-10-25T02:40:08.4390228Z Cache mode: write
+2026-10-25T02:40:08.4391633Z Prepare workflow directory
+2026-10-25T02:40:08.4983270Z Prepare all required actions
+2026-10-25T02:40:08.5055984Z Getting action download info
+2026-10-25T02:40:08.7115717Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-25T02:40:08.8307887Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-25T02:40:08.9170526Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-25T02:40:09.1271082Z Complete job name: build-and-test
+2026-10-25T02:40:09.2061524Z ##[group]Run actions/checkout@v4
+2026-10-25T02:40:09.2062414Z with:
+2026-10-25T02:40:09.2062893Z   repository: Tizoyas/gc-atividade-24-08
+2026-10-25T02:40:09.2067120Z   token: ***
+2026-10-25T02:40:09.2067562Z   ssh-strict: true
+2026-10-25T02:40:09.2067991Z   ssh-user: git
+2026-10-25T02:40:09.2068431Z   persist-credentials: true
+2026-10-25T02:40:09.2068909Z   clean: true
+2026-10-25T02:40:09.2069349Z   sparse-checkout-cone-mode: true
+2026-10-25T02:40:09.2069871Z   fetch-depth: 1
+2026-10-25T02:40:09.2070295Z   fetch-tags: false
+2026-10-25T02:40:09.2070731Z   show-progress: true
+2026-10-25T02:40:09.2071166Z   lfs: false
+2026-10-25T02:40:09.2071573Z   submodules: false
+2026-10-25T02:40:09.2072021Z   set-safe-directory: true
+2026-10-25T02:40:09.2072516Z   allow-unsafe-pr-checkout: false
+2026-10-25T02:40:09.2073297Z ##[endgroup]
+2026-10-25T02:40:09.3072964Z Syncing repository: Tizoyas/gc-atividade-24-08
+2026-10-25T02:40:09.3076048Z ##[group]Getting Git version info
+2026-10-25T02:40:09.3077596Z Working directory is '/home/runner/work/gc-atividade-24-08/gc-atividade-24-08'
+2026-10-25T02:40:09.3079431Z [command]/usr/bin/git version
+2026-10-25T02:40:09.3163825Z git version 2.55.0
+2026-10-25T02:40:09.3196470Z ##[endgroup]
+2026-10-25T02:40:09.3207239Z Temporarily overriding HOME='/home/runner/work/_temp/91df12ff-a4d2-4bd6-a838-8ce421b0cb51' before making global git config changes
+2026-10-25T02:40:09.3209831Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-25T02:40:09.3213237Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/gc-atividade-24-08/gc-atividade-24-08
+2026-10-25T02:40:09.3278759Z Deleting the contents of '/home/runner/work/gc-atividade-24-08/gc-atividade-24-08'
+2026-10-25T02:40:09.3283347Z ##[group]Initializing the repository
+2026-10-25T02:40:09.3287866Z [command]/usr/bin/git init /home/runner/work/gc-atividade-24-08/gc-atividade-24-08
+2026-10-25T02:40:09.3441149Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-25T02:40:09.3443012Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-25T02:40:09.3444808Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-25T02:40:09.3446058Z hint: call:
+2026-10-25T02:40:09.3446944Z hint:
+2026-10-25T02:40:09.3447818Z hint: 	git config --global init.defaultBranch <name>
+2026-10-25T02:40:09.3448854Z hint:
+2026-10-25T02:40:09.3449849Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-25T02:40:09.3451422Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-25T02:40:09.3452676Z hint:
+2026-10-25T02:40:09.3453383Z hint: 	git branch -m <name>
+2026-10-25T02:40:09.3454380Z hint:
+2026-10-25T02:40:09.3455456Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-25T02:40:09.3457579Z Initialized empty Git repository in /home/runner/work/gc-atividade-24-08/gc-atividade-24-08/.git/
+2026-10-25T02:40:09.3460994Z [command]/usr/bin/git remote add origin https://github.com/Tizoyas/gc-atividade-24-08
+2026-10-25T02:40:09.3518989Z ##[endgroup]
+2026-10-25T02:40:09.3520323Z ##[group]Disabling automatic garbage collection
+2026-10-25T02:40:09.3524514Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-25T02:40:09.3561235Z ##[endgroup]
+2026-10-25T02:40:09.3562734Z ##[group]Setting up auth
+2026-10-25T02:40:09.3570907Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T02:40:09.3610612Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T02:40:09.4021688Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T02:40:09.4059097Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T02:40:09.4287514Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T02:40:09.4327925Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T02:40:09.4575700Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-25T02:40:09.4618416Z ##[endgroup]
+2026-10-25T02:40:09.4633589Z ##[group]Fetching the repository
+2026-10-25T02:40:09.4635580Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ced35a87a16f34a5ad6008073d0890b8a6be4392:refs/remotes/origin/main
+2026-10-25T02:40:09.7868535Z From https://github.com/Tizoyas/gc-atividade-24-08
+2026-10-25T02:40:09.7870041Z  * [new ref]         ced35a87a16f34a5ad6008073d0890b8a6be4392 -> origin/main
+2026-10-25T02:40:09.7874957Z ##[endgroup]
+2026-10-25T02:40:09.7876358Z ##[group]Determining the checkout info
+2026-10-25T02:40:09.7878632Z ##[endgroup]
+2026-10-25T02:40:09.7885062Z [command]/usr/bin/git sparse-checkout disable
+2026-10-25T02:40:09.7944182Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-25T02:40:09.8041476Z ##[group]Checking out the ref
+2026-10-25T02:40:09.8043115Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-25T02:40:09.8094315Z Switched to a new branch 'main'
+2026-10-25T02:40:09.8100319Z branch 'main' set up to track 'origin/main'.
+2026-10-25T02:40:09.8110078Z ##[endgroup]
+2026-10-25T02:40:09.8156012Z [command]/usr/bin/git log -1 --format=%H
+2026-10-25T02:40:09.8185308Z ced35a87a16f34a5ad6008073d0890b8a6be4392
+2026-10-25T02:40:09.8633299Z ##[group]Run actions/setup-node@v4
+2026-10-25T02:40:09.8634658Z with:
+2026-10-25T02:40:09.8635482Z   node-version-file: app/.nvmrc
+2026-10-25T02:40:09.8636708Z   cache: npm
+2026-10-25T02:40:09.8637679Z   cache-dependency-path: app/package-lock.json
+2026-10-25T02:40:09.8638963Z   always-auth: false
+2026-10-25T02:40:09.8639860Z   check-latest: false
+2026-10-25T02:40:09.8650715Z   token: ***
+2026-10-25T02:40:09.8651564Z ##[endgroup]
+2026-10-25T02:40:10.0024269Z Node version file is not JSON file
+2026-10-25T02:40:10.0026133Z Resolved app/.nvmrc as 24.19.0
+2026-10-25T02:40:10.0047308Z Attempting to download 24.19.0...
+2026-10-25T02:40:10.0152762Z (node:2377) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-25T02:40:10.0156303Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-25T02:40:10.5509307Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-linux-x64.tar.gz
+2026-10-25T02:40:11.0636662Z Extracting ...
+2026-10-25T02:40:11.0770148Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/76a39e8d-bd87-44d2-8781-3a2a2358276b -f /home/runner/work/_temp/1b0726c3-c5ae-4342-8c0b-7b2698fee4db
+2026-10-25T02:40:12.2867810Z Adding to the cache ...
+2026-10-25T02:40:14.2663331Z ##[group]Environment details
+2026-10-25T02:40:14.4986725Z node: v24.19.0
+2026-10-25T02:40:14.4987138Z npm: 11.17.0
+2026-10-25T02:40:14.4987388Z yarn: 1.22.22
+2026-10-25T02:40:14.4987953Z ##[endgroup]
+2026-10-25T02:40:14.5011616Z [command]/opt/hostedtoolcache/node/24.19.0/x64/bin/npm config get cache
+2026-10-25T02:40:14.5966093Z /home/runner/.npm
+2026-10-25T02:40:14.7235360Z Cache hit for: node-cache-Linux-x64-npm-235721928ca217139a8424a81552f6d98501296ff97ff0eb3524749fa8db0d48
+2026-10-25T02:40:14.7343032Z (node:2377) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-25T02:40:15.1828144Z Received 4598016 of 4598016 (100.0%), 12.6 MBs/sec
+2026-10-25T02:40:15.1828979Z Cache Size: ~4 MB (4598016 B)
+2026-10-25T02:40:15.1855787Z [command]/usr/bin/tar -xf /home/runner/work/_temp/3e453c50-7b0a-4d0d-aee9-629c4c04032b/cache.tzst -P -C /home/runner/work/gc-atividade-24-08/gc-atividade-24-08 --use-compress-program unzstd
+2026-10-25T02:40:15.2517858Z Cache restored successfully
+2026-10-25T02:40:15.2525422Z Cache restored from key: node-cache-Linux-x64-npm-235721928ca217139a8424a81552f6d98501296ff97ff0eb3524749fa8db0d48
+2026-10-25T02:40:15.2725209Z ##[group]Run npm install --global npm@11.17.0
+2026-10-25T02:40:15.2725636Z [36;1mnpm install --global npm@11.17.0[0m
+2026-10-25T02:40:15.3024586Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:15.3024919Z ##[endgroup]
+2026-10-25T02:40:17.2687844Z 
+2026-10-25T02:40:17.2697630Z changed 10 packages in 2s
+2026-10-25T02:40:17.2698054Z 
+2026-10-25T02:40:17.2698439Z 15 packages are looking for funding
+2026-10-25T02:40:17.2699037Z   run `npm fund` for details
+2026-10-25T02:40:17.3171010Z ##[group]Run npm ci
+2026-10-25T02:40:17.3171336Z [36;1mnpm ci[0m
+2026-10-25T02:40:17.3238836Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:17.3239119Z ##[endgroup]
+2026-10-25T02:40:17.9420948Z 
+2026-10-25T02:40:17.9421825Z added 70 packages, and audited 71 packages in 555ms
+2026-10-25T02:40:17.9422478Z 
+2026-10-25T02:40:17.9422840Z 17 packages are looking for funding
+2026-10-25T02:40:17.9423634Z   run `npm fund` for details
+2026-10-25T02:40:17.9448919Z 
+2026-10-25T02:40:17.9449189Z 1 high severity vulnerability
+2026-10-25T02:40:17.9449585Z 
+2026-10-25T02:40:17.9450395Z To address all issues, run:
+2026-10-25T02:40:17.9450978Z   npm audit fix
+2026-10-25T02:40:17.9451234Z 
+2026-10-25T02:40:17.9451467Z Run `npm audit` for details.
+2026-10-25T02:40:17.9586217Z ##[group]Run npm run build
+2026-10-25T02:40:17.9586520Z [36;1mnpm run build[0m
+2026-10-25T02:40:17.9649954Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:17.9650238Z ##[endgroup]
+2026-10-25T02:40:18.0643883Z 
+2026-10-25T02:40:18.0645218Z > sistac-portal-aluno@1.2.0 build
+2026-10-25T02:40:18.0645841Z > node scripts/build.js
+2026-10-25T02:40:18.0646106Z 
+2026-10-25T02:40:18.1206298Z Build do SISTAC concluido.
+2026-10-25T02:40:18.1313715Z ##[group]Run npm test
+2026-10-25T02:40:18.1313983Z [36;1mnpm test[0m
+2026-10-25T02:40:18.1378422Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:18.1378691Z ##[endgroup]
+2026-10-25T02:40:18.2423222Z 
+2026-10-25T02:40:18.2423713Z > sistac-portal-aluno@1.2.0 test
+2026-10-25T02:40:18.2424354Z > node --test
+2026-10-25T02:40:18.2424502Z 
+2026-10-25T02:40:18.5535683Z ✔ Testa a rota de avisos (101.55805ms)
+2026-10-25T02:40:18.5796541Z ✔ Testa a rota de materiais (23.324481ms)
+2026-10-25T02:40:18.7165824Z ✔ Verifica disciplinas cadastradas (1.309318ms)
+2026-10-25T02:40:18.7182463Z ✔ GET /api/disciplinas retorna 200 e lista de disciplinas (159.685999ms)
+2026-10-25T02:40:18.7205527Z ✔ disciplinas possuem codigo, nome, professor, carga e status (13.771842ms)
+2026-10-25T02:40:18.7234686Z ✔ lista de disciplinas contém ESW432 (9.35173ms)
+2026-10-25T02:40:18.7265089Z ✔ GET /api/notas retorna 200 com codigo, avaliacao, nota e peso (7.558782ms)
+2026-10-25T02:40:18.7266328Z ✔ GET /api/health deve retornar o status do serviço (124.041818ms)
+2026-10-25T02:40:18.7415772Z ✔ disciplinas nao podem ter codigos duplicados (1.282157ms)
+2026-10-25T02:40:18.7416734Z ✔ notas devem estar entre 0 e 10 (0.46253ms)
+2026-10-25T02:40:18.7475941Z ✔ cada nota deve referenciar uma disciplina cadastrada (0.213547ms)
+2026-10-25T02:40:18.7505299Z ✔ materiais devem estar relacionados a disciplinas existentes (0.220811ms)
+2026-10-25T02:40:18.9685902Z ✔ GET / deve servir a página Portal do Aluno (78.595271ms)
+2026-10-25T02:40:18.9961306Z ✔ GET /css/styles.css deve servir conteúdo não vazio (28.932804ms)
+2026-10-25T02:40:19.0247912Z ✔ GET /js/app.js deve servir conteúdo não vazio (30.555145ms)
+2026-10-25T02:40:19.1326114Z ✔ POST /api/login com matricula correta e senha incorreta retorna 401 sem token (92.475441ms)
+2026-10-25T02:40:19.1327766Z ✔ POST /api/login com matricula incorreta e senha correta retorna 401 sem token (48.030376ms)
+2026-10-25T02:40:19.1329500Z ✔ POST /api/login com matricula e senha vazias retorna 401 sem token (30.490556ms)
+2026-10-25T02:40:19.1331174Z ✔ POST /api/login com os dados de demonstração deve autenticar o aluno (77.764614ms)
+2026-10-25T02:40:19.1836936Z ✔ GET /api/me retorna os dados do perfil (56.514072ms)
+2026-10-25T02:40:19.1915925Z ✔ GET /api/horario retorna a lista de horarios (9.759309ms)
+2026-10-25T02:40:19.2493008Z ℹ tests 21
+2026-10-25T02:40:19.2494612Z ℹ suites 0
+2026-10-25T02:40:19.2495462Z ℹ pass 21
+2026-10-25T02:40:19.2499903Z ℹ fail 0
+2026-10-25T02:40:19.2500543Z ℹ cancelled 0
+2026-10-25T02:40:19.2501167Z ℹ skipped 0
+2026-10-25T02:40:19.2501723Z ℹ todo 0
+2026-10-25T02:40:19.2502174Z ℹ duration_ms 974.391139
+2026-10-25T02:40:19.2637139Z ##[group]Run node scripts/verificar-dist.js
+2026-10-25T02:40:19.2637516Z [36;1mnode scripts/verificar-dist.js[0m
+2026-10-25T02:40:19.2699704Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:19.2699993Z ##[endgroup]
+2026-10-25T02:40:19.3052690Z OK: dist/src/server.js
+2026-10-25T02:40:19.3055728Z OK: dist/public/index.html
+2026-10-25T02:40:19.3056377Z OK: dist/package.json
+2026-10-25T02:40:19.3056952Z OK: dist/package-lock.json
+2026-10-25T02:40:19.3057595Z OK: dist/INSTALACAO_RELEASE.md
+2026-10-25T02:40:19.3059151Z OK: versao 1.2.0
+2026-10-25T02:40:19.3059625Z Pacote valido.
+2026-10-25T02:40:19.3134590Z ##[group]Run npm run package
+2026-10-25T02:40:19.3134917Z [36;1mnpm run package[0m
+2026-10-25T02:40:19.3196064Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:19.3196329Z ##[endgroup]
+2026-10-25T02:40:19.4187593Z 
+2026-10-25T02:40:19.4187986Z > sistac-portal-aluno@1.2.0 package
+2026-10-25T02:40:19.4188610Z > node scripts/package.js
+2026-10-25T02:40:19.4188845Z 
+2026-10-25T02:40:19.4635114Z Pacote gerado: /home/runner/work/gc-atividade-24-08/gc-atividade-24-08/app/release/sistac-v1.2.0.tar.gz
+2026-10-25T02:40:19.4780501Z ##[group]Run node scripts/checksum-release.js
+2026-10-25T02:40:19.4781373Z [36;1mnode scripts/checksum-release.js[0m
+2026-10-25T02:40:19.4873424Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:19.4873894Z ##[endgroup]
+2026-10-25T02:40:19.5242717Z Checksum SHA-256 gerado.
+2026-10-25T02:40:19.5313683Z ##[group]Run node scripts/smoke-package.js
+2026-10-25T02:40:19.5314369Z [36;1mnode scripts/smoke-package.js[0m
+2026-10-25T02:40:19.5376821Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:19.5377092Z ##[endgroup]
+2026-10-25T02:40:19.5705963Z OK: pacote encontrado (sistac-v1.2.0.tar.gz)
+2026-10-25T02:40:19.5709742Z OK: pasta temporaria criada (/tmp/sistac-smoke-TPBgkL)
+2026-10-25T02:40:19.5763084Z OK: pacote extraido
+2026-10-25T02:40:20.1359625Z 
+2026-10-25T02:40:20.1360674Z added 70 packages, and audited 71 packages in 510ms
+2026-10-25T02:40:20.1361253Z 
+2026-10-25T02:40:20.1361520Z 17 packages are looking for funding
+2026-10-25T02:40:20.1362634Z   run `npm fund` for details
+2026-10-25T02:40:20.1388997Z 
+2026-10-25T02:40:20.1389459Z 1 high severity vulnerability
+2026-10-25T02:40:20.1389854Z 
+2026-10-25T02:40:20.1390113Z To address all issues, run:
+2026-10-25T02:40:20.1390605Z   npm audit fix
+2026-10-25T02:40:20.1390858Z 
+2026-10-25T02:40:20.1391089Z Run `npm audit` for details.
+2026-10-25T02:40:20.1482603Z OK: dependencias instaladas (npm ci --omit=dev)
+2026-10-25T02:40:20.2132213Z OK: aplicacao extraida carregada
+2026-10-25T02:40:20.2189202Z OK: servidor iniciado na porta 33527
+2026-10-25T02:40:20.2594280Z OK: /api/health respondeu HTTP 200
+2026-10-25T02:40:20.2612240Z OK: ok === true
+2026-10-25T02:40:20.2612580Z 
+2026-10-25T02:40:20.2612838Z Smoke test do pacote PASSOU.
+2026-10-25T02:40:20.2619762Z Servidor encerrado.
+2026-10-25T02:40:20.2802086Z Pasta temporaria removida.
+2026-10-25T02:40:20.2955534Z ##[group]Run test -s release/sistac-v1.2.0.tar.gz
+2026-10-25T02:40:20.2956236Z [36;1mtest -s release/sistac-v1.2.0.tar.gz[0m
+2026-10-25T02:40:20.2956835Z [36;1mtest -s release/SHA256SUMS.txt[0m
+2026-10-25T02:40:20.2957341Z [36;1mcd release[0m
+2026-10-25T02:40:20.2957806Z [36;1msha256sum --check SHA256SUMS.txt[0m
+2026-10-25T02:40:20.3050403Z shell: /usr/bin/bash -e {0}
+2026-10-25T02:40:20.3050899Z ##[endgroup]
+2026-10-25T02:40:20.3174900Z sistac-v1.2.0.tar.gz: OK
+2026-10-25T02:40:20.3238930Z ##[group]Run actions/upload-artifact@v4
+2026-10-25T02:40:20.3239223Z with:
+2026-10-25T02:40:20.3239438Z   name: sistac-release-package
+2026-10-25T02:40:20.3239757Z   path: app/release/*.tar.gz
+app/release/SHA256SUMS.txt
+
+2026-10-25T02:40:20.3240097Z   if-no-files-found: error
+2026-10-25T02:40:20.3240341Z   compression-level: 6
+2026-10-25T02:40:20.3240565Z   overwrite: false
+2026-10-25T02:40:20.3240789Z   include-hidden-files: false
+2026-10-25T02:40:20.3241035Z ##[endgroup]
+2026-10-25T02:40:20.4860441Z (node:2674) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-25T02:40:20.4861296Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-25T02:40:20.4946649Z With the provided path, there will be 2 files uploaded
+2026-10-25T02:40:20.4947919Z Artifact name is valid!
+2026-10-25T02:40:20.4948653Z Root directory input is valid!
+2026-10-25T02:40:20.7333893Z Beginning upload of artifact content to blob storage
+2026-10-25T02:40:20.7556530Z (node:2674) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-25T02:40:20.8778691Z Uploaded bytes 17648
+2026-10-25T02:40:20.9096778Z Finished uploading artifact content to blob storage!
+2026-10-25T02:40:20.9098261Z SHA256 digest of uploaded artifact zip is 1ec6472ab0839de5797402b73f7fb2ef9754470baa9f6f2ad8b02b74ef4513b9
+2026-10-25T02:40:20.9099763Z Finalizing artifact upload
+2026-10-25T02:40:21.3299349Z Artifact sistac-release-package.zip successfully finalized. Artifact ID 12583384478
+2026-10-25T02:40:21.3301034Z Artifact sistac-release-package has been successfully uploaded! Final size is 17648 bytes. Artifact ID is 12583384478
+2026-10-25T02:40:21.3306491Z Artifact download URL: https://github.com/Tizoyas/gc-atividade-24-08/actions/runs/40155320131/artifacts/12583384478
+2026-10-25T02:40:21.3483313Z Post job cleanup.
+2026-10-25T02:40:21.4666252Z (node:2686) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-25T02:40:21.4667219Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-25T02:40:21.4670205Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-235721928ca217139a8424a81552f6d98501296ff97ff0eb3524749fa8db0d48, not saving cache.
+2026-10-25T02:40:21.4817609Z Post job cleanup.
+2026-10-25T02:40:21.5692905Z [command]/usr/bin/git version
+2026-10-25T02:40:21.5737647Z git version 2.55.0
+2026-10-25T02:40:21.5783401Z Temporarily overriding HOME='/home/runner/work/_temp/51d614f6-b121-4672-a37f-f3990ad709c4' before making global git config changes
+2026-10-25T02:40:21.5785308Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-25T02:40:21.5790378Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/gc-atividade-24-08/gc-atividade-24-08
+2026-10-25T02:40:21.5828265Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T02:40:21.5866914Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T02:40:21.6120752Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T02:40:21.6155590Z http.https://github.com/.extraheader
+2026-10-25T02:40:21.6168851Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-25T02:40:21.6232471Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T02:40:21.6561919Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T02:40:21.6592999Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T02:40:21.7013563Z Cleaning up orphan processes
+2026-10-25T02:40:21.7325992Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
