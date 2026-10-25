@@ -14,10 +14,10 @@ execFileSync(
 fs.rmSync(destino, { recursive: true, force: true });
 fs.mkdirSync(destino, { recursive: true });
 
-for (const pasta of ['src', 'public']) {
+for (const item of ['src', 'public', 'package.json', 'package-lock.json', 'INSTALACAO_RELEASE.md', '.env.example']) {
   fs.cpSync(
-    path.join(raiz, pasta),
-    path.join(destino, pasta),
+    path.join(raiz, item),
+    path.join(destino, item),
     { recursive: true }
   );
 }
