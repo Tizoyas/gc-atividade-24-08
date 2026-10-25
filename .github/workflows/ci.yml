@@ -32,3 +32,32 @@ jobs:
 
       - name: Executar testes
         run: npm test
+
+      - name: Verificar estrutura do pacote
+        run: node scripts/verificar-dist.js
+
+      - name: Gerar pacote distribuivel
+        run: npm run package
+
+      - name: Gerar checksum
+        run: node scripts/checksum-release.js
+
+      - name: Testar pacote extraido
+        timeout-minutes: 5
+        run: node scripts/smoke-package.js
+
+      - name: Conferir arquivos e checksum para upload
+        run: |
+          test -s release/sistac-v1.2.0.tar.gz
+          test -s release/SHA256SUMS.txt
+          cd release
+          sha256sum --check SHA256SUMS.txt
+
+      - name: Publicar artefato do build
+        uses: actions/upload-artifact@v4
+        with:
+          name: sistac-release-package
+          path: |
+            app/release/*.tar.gz
+            app/release/SHA256SUMS.txt
+          if-no-files-found: error
