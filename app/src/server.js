@@ -31,6 +31,10 @@ app.get("/api/materiais", (_req, res) => res.json(materiais));
 app.get("/api/avisos", (_req, res) => res.json(avisos));
 app.get("/api/horario", (_req, res) => res.json(horario));
 
-app.listen(PORT, () => {
-  console.log(`SISTAC em http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`SISTAC em http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
