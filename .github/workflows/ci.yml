@@ -56,7 +56,7 @@ jobs:
       - name: Publicar artefato do build
         uses: actions/upload-artifact@v4
         with:
-          name: sistac-release-v1.2.0
+          name: sistac-release-package
           path: |
             app/release/*.tar.gz
             app/release/SHA256SUMS.txt
