@@ -1,0 +1,30 @@
+Fonte: GitHub Actions run 40155320131, artifact 12583384478 (download via conector GitHub).
+Inspecao local dos bytes baixados; nenhum build local usado.
+ZIP SHA256: 1ec6472ab0839de5797402b73f7fb2ef9754470baa9f6f2ad8b02b74ef4513b9
+ZIP bytes: 17648
+Entradas do ZIP:
+SHA256SUMS.txt | 87 bytes
+sistac-v1.2.0.tar.gz | 17285 bytes
+TAR SHA256 calculado: cba7875387eaaa9ba78f679a002fe441fb54c42e17b93f052e61d8aa46db0c9d
+SHA256SUMS.txt: cba7875387eaaa9ba78f679a002fe441fb54c42e17b93f052e61d8aa46db0c9d
+Comparacao: OK
+Conteudo do tar.gz:
+./
+./package-lock.json
+./INSTALACAO_RELEASE.md
+./public/
+./public/js/
+./public/js/api.js
+./public/js/data.js
+./public/js/app.js
+./public/css/
+./public/css/styles.css
+./public/index.html
+./src/
+./src/data.js
+./src/server.js
+./.env.example
+./package.json
+package.json version: 1.2.0
+package-lock.json version: 1.2.0
+package-lock.json packages root version: 1.2.0
