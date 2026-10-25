@@ -4,22 +4,28 @@ Todas as mudanças relevantes deste projeto são documentadas neste arquivo.
 
 O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
-## [1.2.0] - Não publicada (tag `v1.2.0` pendente)
+## [1.2.0] - 2026-10-24
 
-Itens já incorporados à `main` depois da tag `v1.1.0`. A data será preenchida quando a tag e a Release forem criadas. Itens ainda não mergeados (publicação do artefato pelo CI, testes de instalação) não constam aqui.
+Release oficial: https://github.com/Tizoyas/gc-atividade-24-08/releases/tag/v1.2.0
 
 ### Adicionado
 
 - Empacotamento distribuível da aplicação: `npm run package` gera `release/sistac-v1.2.0.tar.gz`: [#71](https://github.com/Tizoyas/gc-atividade-24-08/pull/71).
 - Validação da estrutura e da versão do pacote (`verificar-dist`): [#68](https://github.com/Tizoyas/gc-atividade-24-08/pull/68).
 - Checksum SHA-256 do pacote (`app/scripts/checksum-release.js`, gera `SHA256SUMS.txt`): [#72](https://github.com/Tizoyas/gc-atividade-24-08/pull/72).
+- Teste de fumaça da instalação do pacote extraído (`smoke-package.js`): [#74](https://github.com/Tizoyas/gc-atividade-24-08/pull/74).
+- Publicação automática do artefato `sistac-release-package` pelo CI: [#75](https://github.com/Tizoyas/gc-atividade-24-08/pull/75).
+- Validação do pacote baixado do CI (`docs/VALIDACAO_PACOTE.md`): [#76](https://github.com/Tizoyas/gc-atividade-24-08/pull/76).
+- Evidências da geração do artifact no CI (`docs/EVIDENCIAS_RELEASE.md`): [#77](https://github.com/Tizoyas/gc-atividade-24-08/pull/77).
 - Documentação de instalação do pacote distribuível (`app/INSTALACAO_RELEASE.md`): [#67](https://github.com/Tizoyas/gc-atividade-24-08/pull/67).
 - Histórico de mudanças por versão (`docs/RELEASE_HISTORICO.md`): [#70](https://github.com/Tizoyas/gc-atividade-24-08/pull/70).
+- Notas oficiais e justificativa SemVer (`RELEASE_NOTES_v1.2.0.md`): [#73](https://github.com/Tizoyas/gc-atividade-24-08/pull/73).
+- Plano de publicação da Release (`docs/PLANO_PUBLICACAO_RELEASE.md`): [#78](https://github.com/Tizoyas/gc-atividade-24-08/pull/78).
 
 ### Alterado
 
 - Versão interna da aplicação atualizada para 1.2.0 (`app/package.json` e `app/package-lock.json`): [#66](https://github.com/Tizoyas/gc-atividade-24-08/pull/66).
-- Processo de geração de versões: o pacote passou a ser gerado, validado e verificado por scripts (#71, #68 e #72).
+- Processo de geração e distribuição de versões (scripts + artifact no CI + GitHub Release): [#71](https://github.com/Tizoyas/gc-atividade-24-08/pull/71), [#68](https://github.com/Tizoyas/gc-atividade-24-08/pull/68), [#72](https://github.com/Tizoyas/gc-atividade-24-08/pull/72), [#75](https://github.com/Tizoyas/gc-atividade-24-08/pull/75).
 
 ## [1.1.0] - 2026-10-24
 
@@ -45,5 +51,5 @@ Itens já incorporados à `main` depois da tag `v1.1.0`. A data será preenchida
 - Helper de testes HTTP passou a exportar `iniciarServidor` e `fechar`, mantendo `startTestServer`: [#63](https://github.com/Tizoyas/gc-atividade-24-08/pull/63).
 - Controle de modificações na `main`: a regra de proteção documentada em `CI_EVIDENCIAS.md` exige Pull Request e o check `build-and-test` aprovado antes do merge ([#57](https://github.com/Tizoyas/gc-atividade-24-08/pull/57)).
 
-[1.2.0]: https://github.com/Tizoyas/gc-atividade-24-08/compare/v1.1.0...main
+[1.2.0]: https://github.com/Tizoyas/gc-atividade-24-08/releases/tag/v1.2.0
 [1.1.0]: https://github.com/Tizoyas/gc-atividade-24-08/releases/tag/v1.1.0
