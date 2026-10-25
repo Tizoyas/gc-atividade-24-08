@@ -11,11 +11,12 @@ fs.mkdirSync(saida, { recursive: true });
 
 const arquivo = path.join(saida, `sistac-v${versao}.tar.gz`);
 
+// Caminhos relativos (sem "C:") funcionam no tar do Windows e no GNU tar,
+// dispensando o --force-local, que o tar do Windows nao suporta.
 execFileSync('tar', [
-  '--force-local',
-  '-czf', arquivo,
-  '-C', dist,
+  '-czf', path.relative(raiz, arquivo),
+  '-C', path.relative(raiz, dist),
   '.'
-], { stdio: 'inherit' });
+], { cwd: raiz, stdio: 'inherit' });
 
 console.log(`Pacote gerado: ${arquivo}`);
